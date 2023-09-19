@@ -10,15 +10,15 @@
  */
 int print_string(va_list args)
 {
-    char *str = va_arg(args, char *);
+	char *str = va_arg(args, char *);
 	int len = 0;
 
-    if (str == NULL)
-        str = "(null)";
+	if (str == NULL)
+		str = "(null)";
 
-    while (str[len])
-        len++;
+	while (str[len])
+		len++;
 
-    return write(1, str, len);
+	return (write(1, str, len));
 }
 
