@@ -11,9 +11,9 @@
  */
 int print_octal(va_list args)
 {
-	int len = 0;
-    char buffer[12];
-	 (void)args;
-    return write(1, buffer, len);
+int len = 0;
+char buffer[12];
+(void)args;
+return (write(1, buffer, len));
 }
 

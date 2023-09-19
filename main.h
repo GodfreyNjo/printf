@@ -17,4 +17,3 @@ int print_hex_upper(va_list args);
 int print_non_printable(va_list args);
 
 #endif /* MAIN_H */
-

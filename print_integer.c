@@ -10,8 +10,10 @@
  */
 int print_integer(va_list args)
 {
-    int num = va_arg(args, int);
-    char buffer[12];
-    int len = snprintf(buffer, sizeof(buffer), "%d", num);
-    return write(1, buffer, len);
+
+	int num = va_arg(args, int);
+
+char buffer[12];
+int len = snprintf(buffer, sizeof(buffer), "%d", num);
+return (write(1, buffer, len));
 }

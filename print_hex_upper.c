@@ -11,10 +11,12 @@
  */
 int print_hex_upper(va_list args)
 {
-    unsigned int num = va_arg(args, unsigned int);
-    char buffer[20];
-    int len = snprintf(buffer, sizeof(buffer), "%X", num);
-    write(1, buffer, len);
-    return len;
+
+unsigned int num = va_arg(args, unsigned int);
+char buffer[20];
+int len = snprintf(buffer, sizeof(buffer), "%X", num);
+
+write(1, buffer, len);
+return (len);
 }
 
