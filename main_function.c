@@ -9,17 +9,20 @@
  */
 int main(void)
 {
-	int characters_printed = 0;
-	char buffer[1024];
-	int printed_chars;
+	char ch = 'A';
+    char *str = "Hello, World!";
+    int num = 42;
+    unsigned int u_num = 12345;
 
-	characters_printed = _printf("Hello, world!\n");
+    _printf("Character: %c\n", ch);
+    _printf("String: %s\n", str);
+    _printf("Integer: %d\n", num);
+    _printf("Unsigned Integer: %u\n", u_num);
+    _printf("Binary: %b\n", u_num);
+    _printf("Hexadecimal (lowercase): %x\n", u_num);
+    _printf("Hexadecimal (uppercase): %X\n", u_num);
+    _printf("Reversed String: %r\n", str);
+    _printf("Rot13 String: %R\n", str);
 
-	printed_chars = _printf("Characters printed: %d\n", characters_printed);
-
-	sprintf(buffer, "Characters printed: %d\n", printed_chars);
-	write(1, buffer, printed_chars);
-
-	return (0);
+    return (0);
 }
-

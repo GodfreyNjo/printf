@@ -5,13 +5,13 @@
 /**
  * _printf - Custom printf function
  * @format: Format string
+ *
  * Return: Number of characters printed (excluding null byte)
  */
 int _printf(const char *format, ...)
 {
 	va_list args;
 	int printed_chars = 0;
-	char c, *str;
 
 	if (format == NULL)
 	{
@@ -32,13 +32,13 @@ int _printf(const char *format, ...)
 
 			if (*format == 'c')
 			{
-				c = va_arg(args, int);
+				char c = va_arg(args, int);
 				write(1, &c, 1);
 				printed_chars++;
 			}
 			else if (*format == 's')
 			{
-				str = va_arg(args, char *);
+				char *str = va_arg(args, char *);
 				if (str == NULL)
 				{
 					str = "(null)";
@@ -55,6 +55,30 @@ int _printf(const char *format, ...)
 				write(1, "%", 1);
 				printed_chars++;
 			}
+			else if (*format == 'd' || *format == 'i')
+			{
+				printed_chars += print_integer(args);
+			}
+			else if (*format == 'u')
+			{
+				printed_chars += print_unsigned(args);
+			}
+			else if (*format == 'o')
+			{
+				printed_chars += print_octal(args);
+			}
+			else if (*format == 'x')
+			{
+				printed_chars += print_hex(args);
+			}
+			else if (*format == 'X')
+			{
+				printed_chars += print_hex_upper(args);
+			}
+			else if (*format == 'S')
+			{
+				printed_chars += print_non_printable(args);
+			}
 		}
 		else
 		{
@@ -65,6 +89,6 @@ int _printf(const char *format, ...)
 	}
 
 	va_end(args);
-	return (printed_chars);
+	return printed_chars;
 }
 
